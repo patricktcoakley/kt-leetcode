@@ -1,8 +1,8 @@
 package list
 
- class ListNode(var `val`: Int) {
-         var next: ListNode? = null
- }
+data class ListNode(var `val`: Int = 0) {
+    var next: ListNode? = null
+}
 
 fun listNodeOf(vararg arr: Int): ListNode? {
     if (arr.isEmpty()) {
@@ -24,8 +24,8 @@ fun listNodeCycleOf(cycleFrom: Int, cycleTo: Int, vararg arr: Int): ListNode? {
     if (arr.isEmpty() || cycleFrom < 0 || cycleTo < 0) {
         return null
     }
-    val dummy = ListNode(0)
-    var curr: ListNode? = dummy
+    val head = ListNode(0)
+    var curr: ListNode? = head
     var from: ListNode? = null
     var to: ListNode? = null
 
@@ -42,16 +42,16 @@ fun listNodeCycleOf(cycleFrom: Int, cycleTo: Int, vararg arr: Int): ListNode? {
         }
     }
 
-    curr = dummy.next
+    curr = head.next
 
     while (curr != null) {
         if (curr.`val` == from?.`val`) {
             from.next = to
-            break
+            return head.next
         }
 
         curr = curr.next
     }
 
-    return dummy.next
+    return head.next
 }

@@ -6,11 +6,15 @@ import list.listNodeCycleOf
 
 class HasCycleKtTest : FunSpec({
     test("example 1") {
-        hasCycle(listNodeCycleOf(cycleFrom = 3, cycleTo = 1, 3, 2, 0, -4)) shouldBe true
+        val arr = intArrayOf(3, 2, 0, -4)
+        val input = listNodeCycleOf(cycleFrom = 3, cycleTo = 1, *arr)
+        hasCycle(input) shouldBe true
     }
 
     test("example 2") {
-        hasCycle(listNodeCycleOf(cycleFrom = 1, cycleTo = 0, 1, 2)) shouldBe true
+        val arr = intArrayOf(1, 2)
+        val input = listNodeCycleOf(cycleFrom = 1, cycleTo = 0, *arr)
+        hasCycle(input) shouldBe true
     }
 
     test("example 3") {
