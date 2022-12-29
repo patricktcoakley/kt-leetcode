@@ -8,9 +8,7 @@ import io.kotest.matchers.shouldNotBe
 class ListNodeTest : DescribeSpec({
     describe("listNodeOf") {
         it("should return null when given no args") {
-            val res = listNodeOf()
-
-            res shouldBe null
+            listNodeOf() shouldBe null
         }
 
         it("should return a valid ListNode when given args") {
