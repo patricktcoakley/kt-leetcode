@@ -3,7 +3,7 @@ package tree
 import io.kotest.core.spec.style.FunSpec
 import io.kotest.matchers.equality.shouldBeEqualToComparingFields
 import io.kotest.matchers.shouldBe
-import kotlin.test.assertNotNull
+import org.junit.jupiter.api.Assertions.assertNotNull
 
 class TreeNodeKtTest : FunSpec({
     test("empty") {
@@ -69,7 +69,7 @@ class TreeNodeKtTest : FunSpec({
         }
 
         val result = treeNodeOf(1, null, 2, 3)
-        
+
         assertNotNull(result).apply {
             shouldBeEqualToComparingFields(expected)
         }
